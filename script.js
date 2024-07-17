@@ -11,10 +11,17 @@ const botones = document.querySelectorAll('.app__card-button')
 const inputEnfoqueMusica = document.querySelector('#alternar-musica')
 const musica = new Audio('./sonidos/luna-rise-part-one.mp3')
 
+// Activa el modo de repetición continua para la música
+musica.loop = true;
+
+// Añade un event listener al input que controla la música de enfoque
 inputEnfoqueMusica.addEventListener('change', ()=>{
+    // Verifica si la música está pausada
     if(musica.paused){
+        // Si la música está pausada, la reproduce
         musica.play()
     }else{
+        // Si la música está reproduciéndose, la pausa
         musica.pause()
     }
 
@@ -43,10 +50,12 @@ botonLargo.addEventListener('click', () =>{
     botonLargo.classList.add('active')
 })
 
-// Función para cambiar el contexto de la aplicació
+// Función para cambiar el contexto de la aplicación
 function cambiarContexto(contexto){
 
+    // Itera sobre cada elemento en la colección 'botones'
     botones.forEach(function(contexto){
+        // Remueve la clase 'active' de cada elemento 'contexto'
         contexto.classList.remove('active')
     })
 
